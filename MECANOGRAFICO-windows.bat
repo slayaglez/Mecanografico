@@ -1,2 +1,2 @@
-java -jar meca-1.0-SNAPSHOT.jar
+java -Dfile.encoding=UTF-8 -jar meca-1.0-SNAPSHOT.jar
 pause
