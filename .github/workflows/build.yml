@@ -35,7 +35,7 @@ jobs:
       - name: jpackage Windows
         if: runner.os == 'Windows'
         run: |
-            jpackage --input target --name Mecanografico --main-jar meca-1.0-SNAPSHOT.jar --main-class com.meca.Main --type exe --app-version 1.0 --win-console --icon favicon.ico --dest instalador
+            jpackage --input target --name Mecanografico --main-jar meca-1.0-SNAPSHOT.jar --main-class com.meca.Main --type msi --app-version 1.0 --win-console --icon favicon.ico --dest instalador
 
       # 5. Genera el instalador con jpackage (Mac)
       - name: jpackage Mac
