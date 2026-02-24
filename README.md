@@ -10,7 +10,7 @@ Mecanográfico es un **minijuego** para practicar tu velocidad de escritura desd
 
 ## Descarga
 
-En "Releases" o en este [enlace](https://github.com/slayaglez/Mecanografico/releases/tag/v1.0.4) puedes escoger el instalador para tu sistema operativo. Las descargas, respectivamente, son las siguientes:
+En "Releases" o en este [enlace](https://github.com/slayaglez/Mecanografico/releases/tag/v1.0.5) puedes escoger el instalador para tu sistema operativo. Las descargas, respectivamente, son las siguientes:
 
 - Windows - ` Mecanografico-1.0.exe `
 - Linux - ` mecanografico_1.0-1_amd64.deb `
