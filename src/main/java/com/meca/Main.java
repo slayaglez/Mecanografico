@@ -184,14 +184,15 @@ public class Main {
         String RED = "\u001B[31m";
         String GREEN = "\u001B[32m";
         String YELLOW = "\u001B[33m";
-        String BLUE = "\u001B[34m";
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Escoja dificultad: ");
-        System.out.println(" Fácil:   1 💦");
-        System.out.println(" Media:   2 🔥🔥");
-        System.out.println(" Difícil: 3 💥💥💥");
+        boolean isWindows = System.getProperty("os.name").toLowerCase().contains("windows");
+
+        System.out.println(" Fácil:   1 " + (isWindows ? "~"   : "💦"));
+        System.out.println(" Media:   2 " + (isWindows ? "~~"  : "🔥🔥"));
+        System.out.println(" Difícil: 3 " + (isWindows ? "~~~" : "💥💥💥"));
+
         int dificulty = scanner.nextInt();
         scanner.nextLine(); 
 
@@ -215,16 +216,34 @@ public class Main {
         } else {
             System.out.println("\nHas tenido " + RED + errores + " errores" + RESET + " y has tardado " + YELLOW + time + RESET + " segundos");
         }
+
         return time;
     }
 
+
+    /**
+     * Funcion que activa el ansi de windows para habilitar colores
+     * en la terminal //todo Si el ansi no funciona bien se van a ver los códigos de color
+     */
+    public static void enableWindowsAnsi() {
+    try {
+        new ProcessBuilder("reg", "add", 
+            "HKCU\\Console", "/v", "VirtualTerminalLevel", 
+            "/t", "REG_DWORD", "/d", "1", "/f")
+            .start().waitFor();
+    } catch (Exception e) {
+        // Si falla pues no hay colorines
+    }
+}
+    
+
     public static void main(String[] args) {
+
+        enableWindowsAnsi();
 
         // Colores de consola
         String RESET = "\u001B[0m";
-        String RED = "\u001B[31m";
         String GREEN = "\u001B[32m";
-        String YELLOW = "\u001B[33m";
         String BLUE = "\u001B[34m";
 
         Scanner scanner = new Scanner(System.in);
