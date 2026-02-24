@@ -38,7 +38,7 @@ jobs:
       - name: jpackage Mac
         if: runner.os == 'macOS'
         run: |
-          jpackage --input target --name Mecanografico --main-jar meca-1.0-SNAPSHOT.jar --main-class com.meca.Main --type dmg --app-version 1.0 --icon favicon.ico --dest instalador
+            jpackage --input target --name Mecanografico --main-jar meca-1.0-SNAPSHOT.jar --main-class com.meca.Main --type dmg --app-version 1.0 --icon favicon.icns --dest instalador
 
       # 6. Genera el instalador con jpackage (Linux)
       - name: jpackage Linux
