@@ -1,7 +1,9 @@
 package com.meca;
 
+import java.io.PrintStream;
 import java.util.Random;
 import java.util.Scanner;
+import org.fusesource.jansi.AnsiConsole;
 
 public class Main {
 
@@ -189,12 +191,12 @@ public class Main {
 
         boolean isWindows = System.getProperty("os.name").toLowerCase().contains("windows");
 
-        System.out.println(" Fácil:   1 " + (isWindows ? "~"   : "💦"));
-        System.out.println(" Media:   2 " + (isWindows ? "~~"  : "🔥🔥"));
+        System.out.println(" Fácil:   1 " + (isWindows ? "~" : "💦"));
+        System.out.println(" Media:   2 " + (isWindows ? "~~" : "🔥🔥"));
         System.out.println(" Difícil: 3 " + (isWindows ? "~~~" : "💥💥💥"));
 
         int dificulty = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();
 
         System.out.println("¡Pulsa enter para empezar!");
         scanner.nextLine();
@@ -212,34 +214,24 @@ public class Main {
         float time = (timeMilis / 1000f);
 
         if (errores == 0) {
-            System.out.println(GREEN + "¡Impresionante!" + RESET + " sin errores y en " + YELLOW + time + RESET + " segundos");
+            System.out.println(
+                    GREEN + "¡Impresionante!" + RESET + " sin errores y en " + YELLOW + time + RESET + " segundos");
         } else {
-            System.out.println("\nHas tenido " + RED + errores + " errores" + RESET + " y has tardado " + YELLOW + time + RESET + " segundos");
+            System.out.println("\nHas tenido " + RED + errores + " errores" + RESET + " y has tardado " + YELLOW + time
+                    + RESET + " segundos");
         }
 
         return time;
     }
 
-
-    /**
-     * Funcion que activa el ansi de windows para habilitar colores
-     * en la terminal //todo Si el ansi no funciona bien se van a ver los códigos de color
-     */
-    public static void enableWindowsAnsi() {
-    try {
-        new ProcessBuilder("reg", "add", 
-            "HKCU\\Console", "/v", "VirtualTerminalLevel", 
-            "/t", "REG_DWORD", "/d", "1", "/f")
-            .start().waitFor();
-    } catch (Exception e) {
-        // Si falla pues no hay colorines
-    }
-}
-    
-
     public static void main(String[] args) {
 
-        enableWindowsAnsi();
+        AnsiConsole.systemInstall();
+        try {
+            System.setOut(new PrintStream(System.out, true, "UTF-8"));
+        } catch (Exception e) {
+
+        }
 
         // Colores de consola
         String RESET = "\u001B[0m";
