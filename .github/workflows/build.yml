@@ -29,7 +29,7 @@ jobs:
 
       # 3. Compila el proyecto con Maven
       - name: Compilar con Maven
-        run: mvn package
+        run: mvn package -Dfile.encoding=UTF-8
 
       # 4. Genera el instalador con jpackage (Windows)
       - name: jpackage Windows
