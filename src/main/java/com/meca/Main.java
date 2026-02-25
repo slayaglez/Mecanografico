@@ -192,14 +192,14 @@ public class Main {
 
         boolean isWindows = System.getProperty("os.name").toLowerCase().contains("windows");
 
-        System.out.println(" Fácil:   1 " + (isWindows ? "~" : "💦"));
+        System.out.println(" F\u00e1cil:   1 " + (isWindows ? "~" : "💦"));
         System.out.println(" Media:   2 " + (isWindows ? "~~" : "🔥🔥"));
-        System.out.println(" Difícil: 3 " + (isWindows ? "~~~" : "💥💥💥"));
+        System.out.println(" Dif\u00edcil: 3 " + (isWindows ? "~~~" : "💥💥💥"));
 
         int dificulty = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("¡Pulsa enter para empezar!");
+        System.out.println("\u00a1Pulsa enter para empezar!");
         scanner.nextLine();
 
         long start = System.currentTimeMillis();
@@ -216,7 +216,7 @@ public class Main {
 
         if (errores == 0) {
             System.out.println(
-                    GREEN + "¡Impresionante!" + RESET + " sin errores y en " + YELLOW + time + RESET + " segundos");
+                    GREEN + "\u00a1Impresionante!" + RESET + " sin errores y en " + YELLOW + time + RESET + " segundos");
         } else {
             System.out.println("\nHas tenido " + RED + errores + " errores" + RESET + " y has tardado " + YELLOW + time
                     + RESET + " segundos");
@@ -243,19 +243,19 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println(GREEN + "\n========" + BLUE + "¡Bienvenido a Mecanográfico!" + GREEN + "========\n" + RESET);
-        System.out.println("Copia la frase que aparezca por consola lo más rápido que puedas \n");
+        System.out.println(GREEN + "\n========" + BLUE + "\u00a1Bienvenido a Mecanogr\u00e1fico!" + GREEN + "========\n" + RESET);
+        System.out.println("Copia la frase que aparezca por consola lo m\u00e1s r\u00e1pido que puedas \n");
 
         char election = 's';
         while (election != 'n') {
 
             gameLauncher();
 
-            System.out.println("\n¿Quieres jugar de nuevo? (s/n)");
+            System.out.println("\n\u00bfQuieres jugar de nuevo? (s/n)");
             String e = scanner.nextLine();
             election = e.charAt(0);
             if (election != 's' && election != 'n') {
-                System.out.println("\n¡Me lo tomaré como un sí!");
+                System.out.println("\n \u00a1Me lo tomar\u00e9 como un s\u00ed!");
             }
         }
 
