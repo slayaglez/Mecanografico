@@ -3,6 +3,7 @@ package com.meca;
 import java.io.PrintStream;
 import java.util.Random;
 import java.util.Scanner;
+
 import org.fusesource.jansi.AnsiConsole;
 
 public class Main {
@@ -227,8 +228,10 @@ public class Main {
     public static void main(String[] args) {
 
         AnsiConsole.systemInstall();
+        
         try {
-            System.setOut(new PrintStream(System.out, true, "UTF-8"));
+            System.setOut(new PrintStream(AnsiConsole.out(), true, "UTF-8"));
+            System.setErr(new PrintStream(AnsiConsole.err(), true, "UTF-8"));
         } catch (Exception e) {
 
         }
